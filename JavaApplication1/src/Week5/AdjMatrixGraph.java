@@ -1,18 +1,10 @@
-package week5; /******************************************************************************
- *  Compilation:  javac AdjMatrixGraph.java
- *  Execution:    java AdjMatrixGraph V E
- *  Dependencies: StdOut.java
- *
- *  A graph, implemented using an adjacency matrix.
- *  Parallel edges are disallowed; self-loops are allowd.
- *
- ******************************************************************************/
+package Week5;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-
 public class AdjMatrixGraph {
+
     private static final String NEWLINE = System.getProperty("line.separator");
     private int V;
     private int E;
@@ -20,7 +12,9 @@ public class AdjMatrixGraph {
 
     // empty graph with V vertices
     public AdjMatrixGraph(int V) {
-        if (V < 0) throw new RuntimeException("Number of vertices must be nonnegative");
+        if (V < 0) {
+            throw new RuntimeException("Number of vertices must be nonnegative");
+        }
         this.V = V;
         this.E = 0;
         this.adj = new boolean[V][V];
@@ -29,8 +23,12 @@ public class AdjMatrixGraph {
     // random graph with V vertices and E edges
     public AdjMatrixGraph(int V, int E) {
         this(V);
-        if (E < 0) throw new RuntimeException("Number of edges must be nonnegative");
-        if (E > V*(V-1) + V) throw new RuntimeException("Too many edges");
+        if (E < 0) {
+            throw new RuntimeException("Number of edges must be nonnegative");
+        }
+        if (E > V * (V - 1) + V) {
+            throw new RuntimeException("Too many edges");
+        }
 
         // can be inefficient
         while (this.E != E) {
@@ -41,13 +39,19 @@ public class AdjMatrixGraph {
     }
 
     // number of vertices and edges
-    public int V() { return V; }
-    public int E() { return E; }
+    public int V() {
+        return V;
+    }
 
+    public int E() {
+        return E;
+    }
 
     // add undirected edge v-w
     public void addEdge(int v, int w) {
-        if (!adj[v][w]) E++;
+        if (!adj[v][w]) {
+            E++;
+        }
         adj[v][w] = true;
         adj[w][v] = true;
     }
@@ -64,6 +68,7 @@ public class AdjMatrixGraph {
 
     // support iteration over graph vertices
     private class AdjIterator implements Iterator<Integer>, Iterable<Integer> {
+
         private int v;
         private int w = 0;
 
@@ -77,7 +82,9 @@ public class AdjMatrixGraph {
 
         public boolean hasNext() {
             while (w < V) {
-                if (adj[v][w]) return true;
+                if (adj[v][w]) {
+                    return true;
+                }
                 w++;
             }
             return false;
@@ -90,11 +97,10 @@ public class AdjMatrixGraph {
             return w++;
         }
 
-        public void remove()  {
+        public void remove() {
             throw new UnsupportedOperationException();
         }
     }
-
 
     // string representation of Graph - takes quadratic time
     public String toString() {
@@ -109,7 +115,6 @@ public class AdjMatrixGraph {
         }
         return s.toString();
     }
-
 
     // test client
     public static void main(String[] args) {

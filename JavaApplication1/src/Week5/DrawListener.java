@@ -1,12 +1,4 @@
-package week5;
-
-/******************************************************************************
- *  Compilation:  javac DrawListener.java
- *  Execution:    none
- *  Dependencies: none
- *
- *  Interface that accompanies Draw.java.
- ******************************************************************************/
+package Week5;
 
 public interface DrawListener {
 

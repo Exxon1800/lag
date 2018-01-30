@@ -17,7 +17,7 @@ public class Week4 {
 
     public static void main(String args[]) throws IOException {
         Hashtable map = new Hashtable();
-        FileReader fr = new FileReader("D:\\Arnout\\documenten\\GitHub\\lag\\JavaApplication1\\src\\Week4\\dickens.txt");
+        FileReader fr = new FileReader("D:\\Users\\arnou\\Documents\\GitHub\\lag\\JavaApplication1\\src\\Week4\\dickens.txt");
         BufferedReader br = new BufferedReader(fr);
         String line;
 

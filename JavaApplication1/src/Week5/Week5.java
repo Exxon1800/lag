@@ -3,12 +3,11 @@ package Week5;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 
-//@author ENES1
 public class Week5 {
 
     public static void main(String[] args) {
-        Graph G = new Graph(new In("C:\\Users\\Arnout\\Desktop\\week 5\\week5\\src\\week5\\mediumEWG.txt"));
-        EdgeWeightedGraph EG = new EdgeWeightedGraph(new In("C:\\Users\\Arnout\\Desktop\\week 5\\week5\\src\\week5\\mediumEWG.txt"));
+        Graph G = new Graph(new In("D:\\Users\\arnou\\Documents\\GitHub\\lag\\JavaApplication1\\src\\Week5\\tinyEWG.txt"));
+        EdgeWeightedGraph EG = new EdgeWeightedGraph(new In("D:\\Users\\arnou\\Documents\\GitHub\\lag\\JavaApplication1\\src\\Week5\\tinyEWG.txt"));
 
         DepthFirstPaths dfs = new DepthFirstPaths(G, 0);
         KruskalMST mst = new KruskalMST(EG);
